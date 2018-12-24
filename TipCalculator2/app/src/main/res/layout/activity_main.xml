@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <android.support.v4.widget.NestedScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/scrollview"
+            android:layout_weight="80">
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="test">
+            </Button>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:id="@+id/user_tip_input"
+                android:inputType="number|numberDecimal"
+                android:hint="@string/tip_rate"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="10">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_tax_input"
+                android:hint="@string/tax_rate"
+                android:inputType="numberDecimal"
+                android:textSize="16dp"
+                android:layout_weight="3"/>
+        <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/sixtwosix"
+                android:id="@+id/sixtwosix_button"
+                android:layout_weight="1"/>
+        <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/sd"
+                android:id="@+id/sd_button"
+                android:layout_weight="1"/>
+        <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/bay"
+                android:id="@+id/bay_button"
+                android:layout_weight="1"/>
+    </LinearLayout>
+    <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="10"
+            android:text="Compute">
+    </Button>
+</LinearLayout>

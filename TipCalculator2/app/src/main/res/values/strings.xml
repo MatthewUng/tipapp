@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tip Calculator</string>
+    <string name="add_user">Add User</string>
+    <string name="user_prompt">User\'s Name</string>
+    <string name="tip_rate">tip percentage</string>
+    <string name="tax_rate">tax percentage</string>
+    <string name="sd">SD</string>
+    <string name="sixtwosix">626</string>
+    <string name="bay">bay</string>
+</resources>
