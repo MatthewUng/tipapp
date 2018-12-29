@@ -16,6 +16,10 @@ import java.text.DecimalFormat
  * A placeholder fragment containing a simple view.
  */
 class DisplayActivityFragment : Fragment() {
+    val df = DecimalFormat("#.##")
+    init{
+        df.roundingMode = RoundingMode.HALF_EVEN
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +37,6 @@ class DisplayActivityFragment : Fragment() {
         val tip = bundle.getFloat("TIP")
         val tax = bundle.getFloat("TAX")
 
-        val df = DecimalFormat("#.##")
-        df.roundingMode = RoundingMode.HALF_EVEN
 
         var total_tax = 0.0
         var total_tip = 0.0
@@ -50,33 +52,34 @@ class DisplayActivityFragment : Fragment() {
 
             addToView(names[i], costs[i], costs[i] + tax_amt + tip_amt)
         }
+        subtotal = df.format(subtotal).toDouble()
         total_tax = df.format(total_tax).toDouble()
         total_tip = df.format(total_tip).toDouble()
 
         val subtotal_tv = (getView()!!.findViewById(R.id.display_subtotal) as TextView)
-        subtotal_tv.text = "\$${subtotal}"
+        subtotal_tv.text = "\$${df.format(subtotal)}"
         subtotal_tv.setGravity(Gravity.CENTER)
 
         val tax_percentage_tv = getView()!!.findViewById(R.id.tax_percent_text_view) as TextView
-        tax_percentage_tv.setText("@${tax}%")
+        tax_percentage_tv.setText("@${df.format(tax)}%")
         tax_percentage_tv.setGravity(Gravity.CENTER)
 
         val tax_applied_tv = (getView()!!.findViewById(R.id.total_with_tax_textview) as TextView)
-        tax_applied_tv.setText("\$${total_tax+subtotal}")
+        tax_applied_tv.setText("\$${df.format(total_tax+subtotal)}")
         tax_applied_tv.setGravity(Gravity.CENTER)
         tax_applied_tv.setTypeface(tax_applied_tv.typeface, Typeface.BOLD)
 
         val tip_percent_tv = (getView()!!.findViewById(R.id.display_tip_rate_textview) as TextView)
-        tip_percent_tv.setText("@${tip}%")
+        tip_percent_tv.setText("@${df.format(tip)}%")
         tip_percent_tv.setGravity(Gravity.CENTER)
 
         val total_tip_tv = getView()!!.findViewById(R.id.display_tip_amt_textview) as TextView
-        total_tip_tv.setText("\$${total_tip}")
+        total_tip_tv.setText("\$${df.format(total_tip)}")
         total_tip_tv.setGravity(Gravity.CENTER)
         total_tip_tv.setTypeface(total_tip_tv.typeface, Typeface.BOLD)
 
         val final_amt_tv = getView()!!.findViewById(R.id.display_final_amt_textview) as TextView
-        final_amt_tv.text = "\$${total_tip + total_tax+subtotal}"
+        final_amt_tv.text = "\$${df.format(total_tip + total_tax+subtotal)}"
         final_amt_tv.setGravity(Gravity.CENTER)
         final_amt_tv.setTypeface(final_amt_tv.typeface, Typeface.BOLD)
     }
@@ -106,8 +109,8 @@ class DisplayActivityFragment : Fragment() {
         total_tv.gravity = Gravity.CENTER
 
         name_tv.text = name
-        subtotal_tv.text = "\$${cost}"
-        total_tv.text = "\$${total}"
+        subtotal_tv.text = "\$${df.format(cost)}"
+        total_tv.text = "\$${df.format(total)}"
 
 
         total_tv.setTypeface(total_tv.typeface, Typeface.BOLD)
